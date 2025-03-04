@@ -10,8 +10,8 @@ DEL_H_OBJS = forth_core.h forth_words.h kernel.h
 DEL_H_S_OBJS = idt.fth kernel_kbd.fth  kernel_test.fth  kernel_video.fth  kernel_words.fth \
 			   kernel_pit.fth irq.fth test.fth kernel.fth
 
-LDFLAGS = -Tlink.ld  -melf_i386
-ASFLAGS = -g -gelf32
+LDFLAGS = -T link.ld  -melf_i386
+ASFLAGS = -g -f elf32
 asm = nasm
 naturaldocs = /usr/bin/naturaldocs
 
@@ -29,7 +29,7 @@ naturaldocs = /usr/bin/naturaldocs
 	$(asm) $(ASFLAGS) $<
 
 kernel: $(FORTH_INC) $(KERNEL_OBJS) $(FORTH_OBJS)
-	ld $(LDFLAGS) -o kernel $(KERNEL_OBJS) $(FORTH_OBJS)
+	i386-elf-ld $(LDFLAGS) -o kernel $(KERNEL_OBJS) $(FORTH_OBJS)
 
 image: kernel
 	cp -f floppy.orig.img floppy.img
