@@ -1,0 +1,7 @@
+irq.fth:%define _irqmsg irqmsg
+irq.fth:%define _irqmsg2 irqmsg2
+kernel_kbd.fth:%define keymap keymap
+kernel_kbd.fth:%define _key_stat_caps 0x01
+kernel_kbd.fth:%define _key_stat_shift 0x02
+kernel_test.fth:%define _invoke_addr print_hello
+test.fth:%define _invoke_addr invoke_addr

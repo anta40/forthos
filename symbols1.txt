@@ -1,0 +1,89 @@
+forth_core.s:defvar STATE, STATE, 0, 0
+forth_core.s:defvar HERE, HERE, 0, 0
+forth_core.s:defvar LATEST, LATEST, 0, main ; SySCALL0 must be last in built-in dictionary
+forth_core.s:defvar S0, S0, 0, 0
+forth_core.s:defvar BASE, BASE, 0, 10
+forth_core.s:defconst VERSION, VERSION, 0, 1
+forth_core.s:defconst R0, R0, 0, 2
+forth_core.s:defconst DOCOL, __DOCOL, 0, DOCOL
+forth_core.s:defconst F_IMMED, __F_IMMED, 0, 0x80
+forth_core.s:defconst F_HIDDEN, __F_HIDDEN, 0, 0x20
+forth_core.s:defconst F_LENMASK, __F_LENMASK, 0, 0x1f
+forth_core.s:defcode exit, exit, 0
+forth_words.s:defcode stop, stop, 0
+forth_words.s:defcode lit, lit, 0
+forth_words.s:defcode drop, drop,0
+forth_words.s:defcode swap, swap,0
+forth_words.s:defcode dup, dup, 0
+forth_words.s:defcode over, over, 0
+forth_words.s:defcode rot, rot, 0
+forth_words.s:defcode -rot, nrot, 0
+forth_words.s:defcode 2drop, twodrop, 0
+forth_words.s:defcode 2dup, twodup, 0
+forth_words.s:defcode 2swap, twoswap, 0
+forth_words.s:defcode ?dup, qdup, 0
+forth_words.s:defcode 1+, incr, 0
+forth_words.s:defcode 1-, decr, 0
+forth_words.s:defcode 4+, incr4, 0
+forth_words.s:defcode 4-, decr4, 0
+forth_words.s:defcode +, add, 0
+forth_words.s:defcode -, sub, 0
+forth_words.s:defcode *, mul, 0
+forth_words.s:defcode /mod, divmod, 0
+forth_words.s:defword /, div, 0
+forth_words.s:defword mod, mod, 0
+forth_words.s:defcode =, equ, 0
+forth_words.s:defcode <>, nequ, 0
+forth_words.s:defcode <, lt, 0
+forth_words.s:defcode >, gt, 0
+forth_words.s:defcode <=, le, 0
+forth_words.s:defcode >=, ge, 0
+forth_words.s:defcode 0=, zequ, 0
+forth_words.s:defcode 0<>, znequ, 0
+forth_words.s:defcode 0<, zlt, 0
+forth_words.s:defcode 0>, zgt, 0
+forth_words.s:defcode 0<=, zle, 0
+forth_words.s:defcode 0>=, zge, 0
+forth_words.s:defcode and, and, 0   
+forth_words.s:defcode or, or, 0 
+forth_words.s:defcode xor, xor, 0   
+forth_words.s:defcode invert, invert, 0
+forth_words.s:defcode !, store, 0
+forth_words.s:defcode @, fetch, 0
+forth_words.s:defcode +!, addstore, 0
+forth_words.s:defcode -!, substore, 0
+forth_words.s:defcode c!, storebyte, 0
+forth_words.s:defcode c@, fetchbyte, 0
+forth_words.s:defcode w!, storeword, 0
+forth_words.s:defcode w@, fetchword, 0
+forth_words.s:defcode c@c!, ccopy, 0
+forth_words.s:defcode cmove, cmove, 0
+forth_words.s:defcode >r, tor, 0
+forth_words.s:defcode r>, fromr, 0
+forth_words.s:defcode rsp@, rspfetch, 0
+forth_words.s:defcode rsp!, rspstore, 0
+forth_words.s:defcode rdrop, rdrop, 0
+forth_words.s:defcode branch, branch, 0
+forth_words.s:defcode 0branch, zbranch, 0
+forth_words.s:defcode dsp@, dspfetch, 0
+forth_words.s:defcode dsp!, dspstore, 0
+forth_words.s:defcode shl, shl, 0
+forth_words.s:defcode shr, shr, 0
+forth_words.s:defword n_byte, n_byte, 0
+forth_words.s:defcode execute, execute, 0
+idt.fth:defcode set_idt, set_idt, 0
+idt.fth:defcode set_idtr, set_idtr, 0
+irq.fth:defcode irq_init, irq_init, 0
+irq.fth:defcode isr_info, isr_info, 0
+kernel_kbd.fth:defvar key_status, key_status, 0, 0
+kernel_test.fth:defvar tic_count, tic_count, 0, 0
+kernel_test.fth:defcode test_irq, test_irq, 0
+kernel_video.fth:defconst screen, screen, 0, 0xB8000
+kernel_video.fth:defvar cursor_pos_x, cursor_pos_x, 0 , 0
+kernel_video.fth:defvar cursor_pos_y, cursor_pos_y, 0 , 0
+kernel_video.fth:defvar screen_color, screen_color, 0, 0x0f00
+kernel_video.fth:defcode ink, ink, 0
+kernel_video.fth:defcode bg, bg, 0
+kernel_video.fth:defcode c>cw, char_to_charword, 0
+kernel_words.fth:defcode outb, outb, 0
+kernel_words.fth:defcode inb, inb, 0

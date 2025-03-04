@@ -1,0 +1,75 @@
+boot.s:mboot:
+boot.s:start:
+forth_core.s:DOCOL:
+gdt.s:gdtable:
+gdt.s:gdt_pointer:
+gdt.s:gdt_flush:
+gdt.s:flush2:
+kbd_map.s:keymap:
+idt.fth:isr_routine: interrupt_routine _isr_routine
+idt.fth:irq_routine: interrupt_routine _irq_routine
+idt.fth:_isr_routine:
+idt.fth:_irq_routine:
+idt.fth:isr0:       isr_wo_error 0      ;  Division By Zero Exception, No
+idt.fth:isr1:       isr_wo_error 1      ;  Debug Exception, No
+idt.fth:isr2:       isr_wo_error 2      ;  Non Maskable Interrupt Exception, No
+idt.fth:isr3:       isr_wo_error 3      ;  Breakpoint Exception, No
+idt.fth:isr4:       isr_wo_error 4      ;  Into Detected Overflow Exception, No
+idt.fth:isr5:       isr_wo_error 5      ;  Out of Bounds Exception, No
+idt.fth:isr6:       isr_wo_error 6      ;  Invalid Opcode Exception, No
+idt.fth:isr7:       isr_wo_error 7      ;  No Coprocessor Exception, No
+idt.fth:isr8:       isr_with_error 8    ;  Double Fault Exception, yes
+idt.fth:isr9:       isr_wo_error 9      ;  Coprocessor Segment Overrun Exception, No
+idt.fth:isr10:      isr_with_error 10   ;  Bad TSS Exception, yes
+idt.fth:isr11:      isr_with_error 11   ;  Segment Not Present Exception, yes
+idt.fth:isr12:      isr_with_error 12   ;  Stack Fault Exception, yes
+idt.fth:isr13:      isr_with_error 13   ;  General Protection Fault Exception, yes
+idt.fth:isr14:      isr_with_error 14   ;  Page Fault Exception, yes
+idt.fth:isr15:      isr_wo_error 15     ;  Unknown Interrupt Exception, No
+idt.fth:isr16:      isr_wo_error 16     ;  Coprocessor Fault Exception, No
+idt.fth:isr17:      isr_wo_error 17     ;  Alignment Check Exception (486+), No
+idt.fth:isr18:      isr_wo_error 18     ;  Machine Check Exception (Pentium/586+), No
+idt.fth:isr19:      isr_wo_error 19     ; Reserved
+idt.fth:isr20:      isr_wo_error 20     ; Reserved
+idt.fth:isr21:      isr_wo_error 21     ; Reserved
+idt.fth:isr22:      isr_wo_error 22     ; Reserved
+idt.fth:isr23:      isr_wo_error 23     ; Reserved
+idt.fth:isr24:      isr_wo_error 24     ; Reserved
+idt.fth:isr25:      isr_wo_error 25     ; Reserved
+idt.fth:isr26:      isr_wo_error 26     ; Reserved
+idt.fth:isr27:      isr_wo_error 27     ; Reserved
+idt.fth:isr28:      isr_wo_error 28     ; Reserved
+idt.fth:isr29:      isr_wo_error 29     ; Reserved
+idt.fth:isr30:      isr_wo_error 30     ; Reserved
+idt.fth:isr31:      isr_wo_error 31     ; Reserved
+idt.fth:isr32:      irq_wo_error 32     ; PIT timer
+idt.fth:isr33:      irq_wo_error 33     ; Keyboard
+idt.fth:isr34:      irq_wo_error 34     ; PIT beep
+idt.fth:isr35:      irq_wo_error 35
+idt.fth:isr36:      irq_wo_error 36
+idt.fth:isr37:      irq_wo_error 37
+idt.fth:isr38:      irq_wo_error 38
+idt.fth:isr39:      irq_wo_error 39
+idt.fth:isr40:      irq_wo_error 40
+idt.fth:isr41:      irq_wo_error 41
+idt.fth:isr42:      irq_wo_error 42
+idt.fth:isr43:      irq_wo_error 43
+idt.fth:isr44:      irq_wo_error 44
+idt.fth:isr45:      irq_wo_error 45
+idt.fth:isr46:      irq_wo_error 46
+idt.fth:isr47:      irq_wo_error 47
+idt.fth:idt_pointer:
+idt.fth:idtable:  times 48 dq 0
+irq.fth:isr_table: times 48 dq 0
+kernel.fth:main:
+kernel.fth:cold_start:
+kernel.fth:return_stack:
+kernel.fth:return_stack_top:
+kernel_test.fth:hello:      db "hello, world", 0
+kernel_test.fth:fault:      db "A fault happened", 0
+kernel_test.fth:tic_msg:    db "The clock tics", 0
+test.fth:_start:
+test.fth:cold_start:
+test.fth:return_stack:
+test.fth:return_stack_top:
+test.fth:_invoke_addr: dd test_add
